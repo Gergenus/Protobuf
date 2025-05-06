@@ -6,6 +6,7 @@ option go_package = "gergenus.auth.v1;authv1";
 
 service Auth {
     rpc SignUp (SignUpRequest) returns (SignUpResponse);
+    rpc GetUserId (GetUserIdRequest) returns (GetUserIdResponse);
     rpc SignIn (SignInRequest) returns (SignInResponse);
 }
 
@@ -20,6 +21,14 @@ message SignUpResponse {
     int64 user_id = 1;  
 }
 
+message GetUserIdRequest {
+    string username = 1;
+}
+
+message GetUserIdResponse {
+    int64 user_id = 1;
+}
+
 message SignInRequest {
     string username = 1;
     string email = 2;
@@ -29,4 +38,3 @@ message SignInRequest {
 message SignInResponse {
     string token = 1;
 }
-
